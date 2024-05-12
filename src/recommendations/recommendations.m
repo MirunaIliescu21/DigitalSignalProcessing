@@ -10,11 +10,10 @@ function recoms = recommendations(path, liked_theme, num_recoms, min_reviews, nu
   for i = 1:size(V, 1)
     similarities(i) = cosine_similarity(V(liked_theme, :)', V(i, :)');
   end
+
   % Sortez temele dupa similiaritate si tin minte indicii initiali
-  % [sorted_similarities, sorted_indices] = sort(similarities, 'descend');
-  [sorted_similaritie sorted_indices] = sort(similarities, 'descend');
+  [sorted_similarities, sorted_indices] = sort(similarities, 'descend');
 
   % Extrag primii num_recoms ai temelor recomandate
-  % recoms = sorted_indices(1:num_recoms);
-  recoms = sorted_indices(2:(num_recoms + 1));
+  recoms = sorted_indices(2:(num_recoms + 1))
 end
