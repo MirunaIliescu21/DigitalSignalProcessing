@@ -4,9 +4,14 @@ function [x, y] = parse_data(filename)
     % x0 x1 ... xn
     % y0 y1 ... yn
 
-    % TODO 1: Open the file for reading
+    % Deschid fisierul pt citire
+    file_name = fopen(filename, 'r');
 
-    % TODO 2: Read n, x, y from the file
+    % Citesc variabilele 
+    n = fscanf(file_name, '%d', 1); % Citesc intregul n
+    x = fscanf(file_name, '%d', n + 1); % Citesc n+1 intregi
+    y = fscanf(file_name, '%d', n + 1); % Citesc n+1 intregi
 
-    % TODO 3: Close the file
+    % Inchid fisierul
+    fclose(file_name);
 end

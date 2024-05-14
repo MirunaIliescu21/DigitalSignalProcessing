@@ -4,4 +4,14 @@ function y_interp = P_vandermonde (coef, x_interp)
 	% y_interp(i) = P_vandermonde(x_interp(i)), i = 0 : length(x_interp) - 1
 	
 	% TODO: Calcualte y_interp using the Vandermonde coefficients
+
+    n = length(coef);
+    y_interp = zeros(size(x_interp));
+
+    for i = 1:length(x_interp)
+        y_interp(i) = 0;
+        for j = 1:n
+            y_interp(i) = y_interp(i) + coef(j) * x_interp(i)^(j-1);
+        end
+    end
 end

@@ -1,0 +1,75 @@
+### TASK 2
+    INTERPOLAREA SPLINE CUBICA 
+Functia "spine_c2" realizeaza interpolarea spline cubica naturala prin
+rezolvarea unui sistem de ecuatii liniare.
+Etapele algoritmului sunt:
+Constructia matricei de coeficienti si vectorului de termeni liberi: 
+    matrice de 4*n x 4*n si vectorul de solutii de 4*n x 1
+    - acestea sunt folosite pt a definii si rezolva sistemul de ecuatii liniare
+
+Pasul 1: Interpolarea conditiilor initiale si(xi) = yi, i = 0 : n - 1
+         si a conditiilor de frontiera naturala s_n-1(xn) = yn :
+    - condittile initiale asigura construirea primei portiuni din
+    matricei si din vectorului
+    - apoi, se asigura conditia de frontiera naturala prin adaugarea
+    corespunzatoare in matrice si in vector
+
+Pasul 2: Construirea matricei pentru ecuatiile spline:
+    - completez matricia pentru a asigura interpolarea spline cubica
+    intre fiecare pereche de puncte adiacente
+    - calculez coeficientii a, b, c, d pt fiecare interval si ii adaug in matrice
+
+Pasul 3: Conditii de frontiera naturala:
+    - adaug ecuatiile: 
+    s0''(x0) = 0
+    s_n-1''(x_n) = 0 pentru a asigura ca a doua derivata
+    a spline-ului este zero la capetele intervalului de interpolare,
+    ceea ce controleaza curba spline-ului.
+    - aceste ecuatii asigura astfel un comportament
+    neted si continuu in intregile intervale de interpolare.
+
+
+Rezolvarea sistemului de ecuatii liniare:
+    - cu toate ca determinarea matriciei si a vectorului este pur matematica,
+    aleg sa rezolv sistemul de ecuatii cu ajutorul descompunerii LU
+    - LU are o performanta imbunatatita fata de metoda calcului inversei
+    unei matrici, algoritm ce trebuie evitat in mediul computational
+    - folosesc matricea de permutare P in desc lu: [L, U, P] = lu(A);
+    pentru a obtine o solutie numerica mai precisa si mai stabila a
+    sistemului de ecuatii liniare.
+
+Funcția "P_spline" primește coeficienții spline-ului cubic (coef), vectorul de
+noduri (x) si vectorul de puncte pentru care se doreste interpolarea (x_interp).
+Etapele algoritmului sunt:
+Pasul 1: Calculez numărul de subintervale n bazat pe lungimea vectorului de noduri x.
+    - creez un vector gol y_interp pentru a stoca rezultatele interpolării
+
+Pasul 1: Interpolare spline cubică: 
+    - se parcurge fiecare punct din vectorul x_interp pentru a determina valoarea
+    interpolată corespunzătoare.
+
+Pasul 3: Gasirea intervalului: 
+    - pentru fiecare punct de interpolare, gasesc intervalul corespunzator
+    din vectorul x, in care acesta se află
+    - acest lucru se realizează folosind funcția find pentru a determina primul
+    index al intervalului care contine punctul
+
+pasul 4: Extragerea coeficientilor: 
+    - după ce determin intervalul corespunzător, coeficienții spline-ului cubic
+    pentru acel interval sunt extrasi din vectorul coef
+
+Pasul 5: Calculul interpolării: 
+    - calculez valoarea interpolată pentru punctul respectiv, folosind formula
+    spline-ului cubic si coeficientii corespunzatori
+    - valoarea interpolată este stocată în vectorul y_interp pe pozitia corespunzatoare
+
+    COEFICIENTII VANDERMONDE
+Functia "vandermonde(x, y)" creeaza matricea Vandermonde V, in care fiecare coloana
+contine puterile corespunzatoare vectorului x.
+    - coeficienții polinomului de interpolare sunt calculati folosind aceasta
+    matrice si vectorul y al valorilor corespunzatoare.
+    - functia returneaza vectorul coef care contine coeficientii polinomului
+
+Functia "P_vandermonde(coef, x_interp)" itereaza prin fiecare punct de
+interpolare din x_interp si calculez valoarea interpolata pentru
+fiecare polinom, utilizand coeficientii "coef".
