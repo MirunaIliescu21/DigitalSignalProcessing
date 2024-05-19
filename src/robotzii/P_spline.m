@@ -1,7 +1,7 @@
 function y_interp = P_spline(coef, x, x_interp)
 	% Calculez numarul de subintervale
     n = length(x) - 1;
-	% initializez vectorul rezultat al interpolarii
+	% Initializez vectorul rezultat al interpolarii
     y_interp = zeros(size(x_interp));
 
     % Iterez prin interpolara

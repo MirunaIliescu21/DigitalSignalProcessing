@@ -1,11 +1,12 @@
 function recoms = recommendations(path, liked_theme, num_recoms, min_reviews, num_features)
-  # TODO: Get the best `num_recoms` recommandations similar with 'liked_theme'.
   mat = read_mat(path);
+  % Elimin clientii care au oferit mai putine recenzii decat 'min_riviews'
   reduced_mat = preprocess(mat, min_reviews);
   % Calculez descompunerea SVD a matriciei
   [U, S, V] = svds(reduced_mat, num_features);
 
   % Calculez similaritatea intre tema apreciata si oricare alta tema
+  % V contine vectorii singurlari dreapta
   similarities = zeros(1, size(V, 1));
   for i = 1:size(V, 1)
     similarities(i) = cosine_similarity(V(liked_theme, :)', V(i, :)');

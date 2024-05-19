@@ -1,5 +1,134 @@
+TEMA 2 METODE NUMERICE 
+ILIESCU MIRUNA ELENA - 312CA
+
+### DESCRIERE
+
+### TASK 1
+
+# Explicatia conceptelor din acest task:
+    STOCAREA UNUI SEMNAL ANALOGIC
+
+    Un semnal analogic poate fi stocat digital prin eșantionare si cuantizare. 
+Eșantionarea consta în capturarea valorilor semnalului la intervale regulate de timp,
+iar cuantizarea in rotunjirea acestor valori la cel mai apropiat numar permis de
+rezolutia digitala. 
+Stocarea digitala faciliteaza manipularea si prelucrarea semnalelor audio pe calculator.
+
+    STEREO SI MONO - functia "stereo_to_mono.m"
+
+Mono: Sunetul este capturat si redat printr-un singur canal audio.
+Este simplu si eficient din punct de vedere al stocării, dar poate fi lipsit de spatialitate.
+
+Stereo: In schimb, un semnal stereo utilizează două canale audio, unul pentru urechea stângă
+si unul pentru urechea dreaptă, creand astfel o iluzie de spațialitate si adancime a sunetului.
+Acest lucru este esential pentru o experienta audio imersiva. 
+
+    VIZUALIZAREA SUNETULUI
+
+Spectrograma: Este grafic care reprezintă frecventele unui semnal audio în funcție de timp.
+    Functia "spectrogram" este esentiala pentru analiza semnalelor audio, permitandu-ne 
+sa vizualizam cum variaza in timp frecventele unui semnal.
+Acest lucru este crucial in multe aplicaTii, inclusiv în muzicA, recunoaSterea vorbirii
+si diagnosticarea problemelor audio.
+
+    CREAREA SUNETELOR ARTIFICIALE
+
+Oscilatoare: Sunt dispozitive sau algoritmi care generează forme de undă periodice.
+Formele de undă comune includ  semnale sinusoidale, pătrate, triunghiulare și dinti de fierăstrău.
+Acestea sunt fundamentale pentru sinteza sunetelor în muzica electronica.
+
+    APLICAREA FILTRELOR AUDIO
+
+Filtre: Sunt instrumente utilizate pentru a modifica frecventele unui semnal audio.
+Acestea sunt folosite pentru a elimina zgomotele, a modela tonul si a crea efecte speciale.
+
+        ## Rezultatele functiilor din `studio.m`
+
+### Spectrograma pentru "Plain Loop"
+
+Am utilizat functia 'spectrogram' pentru a genera o spectrograma a semnalului 
+din fisierul 'loop.wav'. Spectrograma arată prezența frecvențelor variate ale
+semnalului audio pe întreaga durată a înregistrării. Se observă clar structura
+frecvențială a semnalului muzical, indicand un amestec de frecvente.
+
+### Spectrograma pentru "Plain Sound"
+
+Pentru semnalul generat din fișierul 'music1.csv', spectrograma arată o distribuție
+diferită a frecvențelor comparativ cu "Plain Loop".
+Diferențele dintre spectrograma "Plain Sound" și "Plain Loop" se datorează variabilității
+frecvențelor și amplitudinilor din cele două semnale. "Plain Loop" conține repetarea unui
+set fix de frecvențe, in timp ce "Plain Sound" are o structură mai complexă si variabilă.
+
+### Spectrograma pentru "Low Pass Sound"
+
+Dupa aplicarea unui filtru 'low_pass' la semnalul generat,
+spectrograma arata o reducere semnificativa a componentelor frecvențiale mai inalte.
+Aceasta modificare confirma că filtrul 'low_pass' a eliminat frecventele de peste 1000 Hz,
+pastrand doar frecventele joase.
+    Acest lucru este așteptat, deoarece filtrul 'low_pass' permite trecerea doar
+a frecventelor sub 1000 Hz.
+
+### Spectrograma pentru "Reverb Sound"
+
+Aplicatia efectului de reverberatie ('apply_reverb') asupra semnalului generat
+produce o spectrogramă care arată prezenta frecvențelor extinse in timp.
+Efectul de reverberatie adauga o persistenta a sunetului, vizibilă ca o
+intindere a componentelor frecventiale.
+
+Spectrograma "Reverb Sound" prezintă o extindere temporală a componentelor frecvențiale,
+ceea ce indică adăugarea unei reverberații. Comparativ cu "Plain Sound", se observă ca
+frecvențele sunt mai intinse pe axa timpului, reflectand ecourile adaugate de reverberație.
+
+### Spectrograma pentru "Tech"
+
+Pentru semnalul din 'tech.wav', spectrograma arată o distribuție complexă a frecvențelor,
+specifică unui semnal tehnologic sau electronic. Se observă multiple componente frecvențiale
+variate pe intreaga durata a inregistrarii.
+
+Spectrograma "Tech" arată o prezență diversificată a frecvențelor, tipică pentru muzica electronică.
+Multiple componente frecvențiale sunt vizibile, reflectând complexitatea semnalului.
+
+### Spectrograma pentru "Low Pass Tech"
+
+Filtrarea semnalului 'tech.wav' cu un filtru 'low_pass' arata, similar cu exemplul anterior,
+o reducere a frecvențelor înalte, păstrând doar frecvențele joase.
+Spectrograma este mai curată și arată mai puține componente frecvențiale.
+
+Spectrograma "Low Pass Tech" arată clar reducerea frecvențelor înalte, păstrând doar frecvențele joase.
+Aceasta confirma eficienta filtrului 'low_pass' in eliminarea componentelor de frecventa inalta.
+
+### Spectrograma pentru "Reverb Tech"
+
+Spectrograma "Reverb Tech" arata extinderea temporala a componentelor frecvențiale datorita 
+reverberației. Aceasta este vizibilă ca o intindere a frecventelor pe axa timpului,
+reflectand ecourile adaugate.
+
+### Spectrograma pentru "Low Pass + Reverb Tech"
+
+Spectrograma "Low Pass + Reverb Tech" arată cum frecvențele joase sunt extinse temporal dupa 
+aplicarea reverberației. Filtrarea inițială elimină frecvențele înalte, iar reverberatia 
+adaugă persistență frecvențelor rămase.
+
+### Spectrograma pentru "Reverb + Low Pass Tech"
+
+Aplicarea initiala a reverberației si apoi a filtrului 'low_pass' produce o spectrograma similara,
+dar cu unele diferențe subtile. Frecvențele joase sunt mai pronunțate si clar delimitate datorita
+filtrului aplicat după reverberație.
+
+## Concluzii
+
+Analizand spectrogramele obtinute, as putea concluziona aceste lucruri:
+- Filtrul 'low_pass' este eficient in eliminarea frecventelor inalte,
+păstrând doar frecventele joase.
+- Efectul de reverberatie adauga o persistență a sunetului, vizibila în spectrogramă
+prin extinderea frecventelor în timp.
+- Ordinea aplicarii efectelor (low-pass si reverb) poate influenta rezultatul final in
+moduri subtile, observabile în spectrogramă.
+
+
 ### TASK 2
     INTERPOLAREA SPLINE CUBICA 
+
 Functia "spine_c2" realizeaza interpolarea spline cubica naturala prin
 rezolvarea unui sistem de ecuatii liniare.
 Etapele algoritmului sunt:
@@ -64,6 +193,7 @@ Pasul 5: Calculul interpolării:
     - valoarea interpolată este stocată în vectorul y_interp pe pozitia corespunzatoare
 
     COEFICIENTII VANDERMONDE
+    
 Functia "vandermonde(x, y)" creeaza matricea Vandermonde V, in care fiecare coloana
 contine puterile corespunzatoare vectorului x.
     - coeficienții polinomului de interpolare sunt calculati folosind aceasta
@@ -73,3 +203,30 @@ contine puterile corespunzatoare vectorului x.
 Functia "P_vandermonde(coef, x_interp)" itereaza prin fiecare punct de
 interpolare din x_interp si calculez valoarea interpolata pentru
 fiecare polinom, utilizand coeficientii "coef".
+
+
+### TASK 3
+
+## Preprocesare este procesul prin care se reduce volumul mare de date, 
+## micsorand dimensiunea matriciei cu care se lucreaza.
+    Functia "preprocess.m" primeste o matrice 'A' si un numar intreg 'min_count'.
+Are ca scop eliminarea tuturor clientilor (liniilor) care au oferit strict mai putine
+recenzii decat 'min_count'.
+
+## Similaritatea cosinus este o măsură de similaritate intre doi vectori nenuli, 
+## definita ca fiind cosinusul unghiului dintre cei doi vectori.
+    Functie "cosine_similarity.m" primeste doi vectori coloana, îi normalizează
+si calculează similaritatea cosinus conform formulei din cerinta.
+
+    Functia "read_mat.m" citeste cu ajutorul functiei 'csvread(path)' matricea dintr-un 
+fisier *.csv si o construieste eliminand headerele.
+
+## Recomandari
+    Functia "recommendations.m" este conceputa pentru a genera recomandări de teme care 
+sunt similare cu o temă pe care un utilizator a apreciat-o. Aceasta face parte dintr-un
+sistem de recomandare care utilizează analiza matricială pentru a determina similaritatea
+intre diferite teme si pentru a sugera teme relevante bazate pe preferintele utilizatorului.
+    Aceasta funtcie utilizeaza descompunere SVD [U, S, V] = svds(reduced_mat, num_features);
+pentru a reduce complexitatea datelor si pentru a identifica caracteristicile relevante ale
+temelor.
+
