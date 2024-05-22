@@ -17,7 +17,7 @@ valori la cel mai apropiat număr permis de rezoluția digitală.
 Stocarea digitală facilitează manipularea și prelucrarea semnalelor
 audio pe calculator.
 
-##### STEREO ȘI MONO - funcția "stereo_to_mono.m"
+##### STEREO ȘI MONO - funcția `stereo_to_mono.m`
 
 Mono: Sunetul este capturat și redat printr-un singur canal audio.
 Este simplu și eficient din punct de vedere al stocării, dar poate fi
@@ -125,7 +125,7 @@ mai pronunțate și clar delimitate datorită filtrului aplicat după reverbera�
 #### Concluzii
 
 Analizând spectrogramele obținute, se pot concluziona următoarele:
-- Filtrul 'low_pass' este eficient în eliminarea frecvențelor înalte,
+- Filtrul `low_pass` este eficient în eliminarea frecvențelor înalte,
   păstrând doar frecvențele joase.
 - Efectul de reverberație adaugă o persistență a sunetului, vizibilă în
   spectrogramă prin extinderea frecvențelor în timp.
@@ -144,7 +144,7 @@ rezolvarea unui sistem de ecuații liniare. Etapele algoritmului sunt:
   - Acestea sunt folosite pentru a defini și rezolva sistemul de ecuații
     liniare
 
-##### Pasul 1: Interpolarea condițiilor inițiale și(xi) = yi, i = 0 : n - 1
+##### Pasul 1: Interpolarea condițiilor inițiale s_i(xi) = yi, i = 0 : n - 1
 și a condițiilor de frontieră naturală s_n-1(xn) = yn:
 - Condițiile inițiale asigură construirea primei porțiuni din matrice și
   din vector
@@ -220,7 +220,7 @@ fiecare polinom, utilizând coeficienții "coef".
 #### Preprocesare
 
 Preprocesarea este procesul prin care se reduce volumul mare de date,
-micșorând dimensiunea matricei cu care se lucrează. Funcția "preprocess.m"
+micșorând dimensiunea matricei cu care se lucrează. Funcția `preprocess.m`
 primește o matrice 'A' și un număr întreg 'min_count'. Are ca scop
 eliminarea tuturor clienților (liniilor) care au oferit strict mai puține
 recenzii decât 'min_count'.
@@ -229,15 +229,15 @@ recenzii decât 'min_count'.
 
 Similaritatea cosinus este o măsură de similaritate între doi vectori nenuli,
 definită ca fiind cosinusul unghiului dintre cei doi vectori.
-Funcția "cosine_similarity.m" primește doi vectori coloană, îi normalizează
+Funcția `cosine_similarity.m` primește doi vectori coloană, îi normalizează
 și calculează similaritatea cosinus conform formulei din cerință.
 
-Funcția "read_mat.m" citește cu ajutorul funcției 'csvread(path)' matricea
+Funcția `read_mat.m` citește cu ajutorul funcției 'csvread(path)' matricea
 dintr-un fișier *.csv și o construiește eliminând headerele.
 
 #### Recomandari
 
-Funcția "recommendations.m" este concepută pentru a genera recomandări de teme
+Funcția `recommendations.m` este concepută pentru a genera recomandări de teme
 care sunt similare cu o temă pe care un utilizator a apreciat-o. Aceasta face
 parte dintr-un sistem de recomandare care utilizează analiza matricială pentru
 a determina similaritatea între diferite teme și pentru a sugera teme relevante
